@@ -12,7 +12,10 @@ let enhancers = [
 export default function configureStore(initialState) {
   if (process.env.NODE_ENV === 'development') {
     const logger = createLogger();
-    const enhancer = compose(applyMiddleware(...middlewares), ...enhancers);
+    const enhancer = compose(
+      applyMiddleware(...middlewares, logger),
+      ...enhancers
+    );
     store = createStore(rootReducer, initialState, enhancer);
   } else {
     const enhancer = applyMiddleware(...middlewares);
