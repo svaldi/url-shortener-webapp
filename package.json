@@ -16,8 +16,15 @@
     ]
   },
   "dependencies": {
+    "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.17",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "enzyme": "^3.2.0",
@@ -25,7 +32,8 @@
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
     "prettier": "^1.9.2",
+    "react-scripts": "1.0.17",
     "react-test-renderer": "^16.2.0",
-    "react-scripts": "1.0.17"
+    "redux-devtools": "^3.4.1"
   }
 }
