@@ -72,3 +72,11 @@
 .form {
   background: rgba(0, 0, 0, 0.35);
 }
+
+.get-short-url {
+  width: 40%;
+}
+
+.error {
+  color: darkred;
+}
