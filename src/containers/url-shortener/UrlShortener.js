@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { array, bool, func, object, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchURLS } from '../redux/actions';
+import { fetchURLS } from '../../redux/actions';
 
-import styles from '../styles/UrlShortener.css';
+import UrlList from '../url-shortener/UrlList';
+
+import '../../styles/UrlShortener.css';
 
 class UrlShortener extends Component {
   static propTypes = {
@@ -21,15 +23,16 @@ class UrlShortener extends Component {
   render() {
     const { isFetching, title, urls } = this.props;
     return (
-      <div className={styles['url-shortener']}>
+      <div className="url-shortener">
         {isFetching && urls.length === 0 && <h2>Loading...</h2>}
         {!isFetching &&
           urls.length >= 0 && (
             <div
               style={{ opacity: isFetching ? 0.5 : 1 }}
-              className={styles['flex-container']}
+              className="flex-container"
             >
-              <p>Components will be here!</p>
+              <h2>{title}</h2>
+              <UrlList title="List of Active urls" urls={urls} />
             </div>
           )}
       </div>

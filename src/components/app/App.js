@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.svg';
 import '../../styles/App.css';
-import UrlShortener from '../../containers/UrlShortener';
+import UrlShortener from '../../containers/url-shortener/UrlShortener';
 
 class App extends Component {
   render() {
