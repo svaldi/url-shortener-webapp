@@ -3,7 +3,7 @@
 }
 
 .flex-container {
-  display: flex;
+  /*display: flex;*/
 }
 
 .url-shortener h2 {
@@ -23,16 +23,16 @@
 .url-list ul {
   background: rgba(0, 0, 0, 0.15);
   list-style: none;
-  padding: 12px 12px 12px 0px;
+  padding: 12px 12px 12px 0;
 }
 
 .url-list .details {
   list-style: none;
-  padding: 12px 12px 12px 0px;
+  padding: 12px 12px 12px 0;
 }
 
 .list-url-item {
-  display: flex;
+  display: inline-flex;
   margin: auto 12px;
 }
 
