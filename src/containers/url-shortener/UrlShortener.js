@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { array, bool, func, object, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchURLS } from '../../redux/actions';
+import { reset } from 'redux-form';
+import { createURL, fetchURLS } from '../../redux/actions';
 
+import UrlForm from '../url-shortener/UrlForm';
 import UrlList from '../url-shortener/UrlList';
 
 import '../../styles/UrlShortener.css';
@@ -10,6 +12,8 @@ import '../../styles/UrlShortener.css';
 class UrlShortener extends Component {
   static propTypes = {
     activeURL: object,
+    createURL: func,
+    dispatch: func,
     fetchURLS: func,
     isFetching: bool,
     title: string.isRequired,
@@ -19,6 +23,12 @@ class UrlShortener extends Component {
   componentWillMount() {
     this.props.fetchURLS();
   }
+
+  submit = (value, dispatch) => {
+    this.props.createURL(value);
+
+    dispatch(reset('generateShortUrlForm'));
+  };
 
   render() {
     const { isFetching, title, urls } = this.props;
@@ -31,8 +41,11 @@ class UrlShortener extends Component {
               style={{ opacity: isFetching ? 0.5 : 1 }}
               className="flex-container"
             >
-              <h2>{title}</h2>
-              <UrlList title="List of Active urls" urls={urls} />
+              <div className="form">
+                <h2>{title}</h2>
+                <UrlForm onSubmit={this.submit} />
+              </div>
+              <UrlList title="List of Active short urls" urls={urls} />
             </div>
           )}
       </div>
@@ -49,4 +62,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { fetchURLS })(UrlShortener);
+export default connect(mapStateToProps, { createURL, fetchURLS })(UrlShortener);

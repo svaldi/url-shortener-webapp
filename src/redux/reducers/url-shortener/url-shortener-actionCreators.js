@@ -31,3 +31,19 @@ function receiveURLS(urls) {
     payload: urls
   };
 }
+
+export function createURL(data) {
+  return dispatch => {
+    return request
+      .post('/', { url: data.longUrl })
+      .then(response => response.data)
+      .then(url => dispatch(createURLSuccess(url)));
+  };
+}
+
+function createURLSuccess(url) {
+  return {
+    type: CREATE_URL,
+    payload: url
+  };
+}
