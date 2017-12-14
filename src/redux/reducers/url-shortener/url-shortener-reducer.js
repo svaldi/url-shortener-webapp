@@ -15,7 +15,7 @@ export default (state = INITIAL_STATE, action) => {
     case REQUEST_URLS:
       return { ...state, isFetching: true };
     case RECEIVE_URLS:
-      return state;
+      return { ...state, urls: action.payload, isFetching: false };
     case CREATE_URL:
       return state;
     default:
