@@ -8,4 +8,11 @@ describe('Validation helper', () => {
 
     expect(errors.longUrl).to.be.equal('Required');
   });
+
+  xit('should no return error', () => {
+    const values = { longUrl: true };
+    const errors = validation(values);
+
+    expect(errors).to.be.equal({});
+  });
 });
