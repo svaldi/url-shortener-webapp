@@ -2,7 +2,8 @@ import axios from 'axios';
 import {
   REQUEST_URLS,
   RECEIVE_URLS,
-  CREATE_URL
+  CREATE_URL_SUCCESS,
+  CREATE_URL_FAILED
 } from './url-shortener-actionTypes';
 
 const request = axios.create({
@@ -37,13 +38,21 @@ export function createURL(data) {
     return request
       .post('/', { url: data.longUrl })
       .then(response => response.data)
-      .then(url => dispatch(createURLSuccess(url)));
+      .then(url => dispatch(createURLSuccess(url)))
+      .catch(error => dispatch(createURLFailed(error.response.data)));
   };
 }
 
 function createURLSuccess(url) {
   return {
-    type: CREATE_URL,
+    type: CREATE_URL_SUCCESS,
     payload: url
+  };
+}
+
+function createURLFailed(error) {
+  return {
+    type: CREATE_URL_FAILED,
+    error: error
   };
 }
