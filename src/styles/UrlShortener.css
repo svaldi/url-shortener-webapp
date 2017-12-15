@@ -1,0 +1,82 @@
+.url-shortener {
+  background: #fff;
+}
+
+.flex-container {
+  /*display: flex;*/
+}
+
+.url-shortener h2 {
+  margin: 5px 0 10px 5px;
+  color: #000;
+}
+
+.url-shortener .url-list h2 {
+  margin: 10px;
+  color: #1badf8;
+}
+
+.url-list {
+  margin: 0 0 0 0;
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.url-list ul {
+  background: rgba(0, 0, 0, 0.15);
+  list-style: none;
+  padding: 12px 12px 12px 0;
+}
+
+.url-list .details {
+  list-style: none;
+  padding: 12px 12px 12px 0;
+}
+
+.list-url-item {
+  display: inline-flex;
+  margin: auto 12px;
+}
+
+.group-list li {
+  padding-left: 1.3em;
+}
+
+.group-list li:before {
+  display: inline-block;
+  margin-left: -1.3em;
+  width: 1.3em;
+}
+
+.indicator {
+  width: 15px;
+  height: 15px;
+  background: #1badf8;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.url-list li .indicator {
+  text-align: center;
+  top: 0;
+  bottom: 0;
+  margin: auto 12px;
+  border: none; /* Mobile Safari */
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.active {
+  color: rebeccapurple;
+}
+
+.form {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.get-short-url {
+  width: 40%;
+}
+
+.error {
+  color: darkred;
+}

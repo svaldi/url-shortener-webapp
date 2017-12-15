@@ -15,9 +15,14 @@ export default (state = INITIAL_STATE, action) => {
     case REQUEST_URLS:
       return { ...state, isFetching: true };
     case RECEIVE_URLS:
-      return state;
+      return { ...state, urls: action.payload, isFetching: false };
     case CREATE_URL:
-      return state;
+      const url = { _id: action.payload.hash, ...action.payload }; // temporal fix for missing _id
+      return {
+        ...state,
+        urls: [url, ...state.urls],
+        activeURL: action.payload
+      };
     default:
       return state;
   }
