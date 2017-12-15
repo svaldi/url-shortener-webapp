@@ -12,8 +12,8 @@ describe('UrlForm component', () => {
   });
 
   xit('should have a form', () => {
-    const wrapper = shallow(<UrlForm handleSubmit={() => {}} />);
+    const wrapper = shallow(<UrlForm onSubmit={() => {}} />);
 
-    expect(wrapper.contains(Field)).to.be.equal(true);
+    expect(wrapper.find(Field).length).to.be.equal(1);
   });
 });
